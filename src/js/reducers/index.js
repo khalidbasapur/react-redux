@@ -1,27 +1,26 @@
-import { ADD_ARTICLE, REMOVE_ARTCILE } from "../constants/action-types";
+import { ADD_ARTICLE, REMOVE_ARTCILE } from '../constants/action-types';
 
 const initialState = {
-    articles: []
-}
+	articles: [],
+};
 
 function rootReducer(state = initialState, action) {
-    console.log("im in actions", action);
-    switch(action.type) {
-        case ADD_ARTICLE:
-            return {
-                ...state,
-                articles: [...state.articles, action.payload]
-            }
-        case REMOVE_ARTCILE: 
-            return {
-                ...state,
-                articles: state.articles.filter((e, i) => i !== action.payload.index)
-            }
-        default:
-            return state;
-
-    }
-    /* 
+	console.log('im in actions', action);
+	switch (action.type) {
+		case ADD_ARTICLE:
+			return {
+				...state,
+				articles: [...state.articles, action.payload],
+			};
+		case REMOVE_ARTCILE:
+			return {
+				...state,
+				articles: state.articles.filter((e, i) => i !== action.payload.index),
+			};
+		default:
+			return state;
+	}
+	/* 
     Other approach
     if (action.type === ADD_ARTICLE) {
         return Object.assign({}, state, {
